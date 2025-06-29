@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Interactivo | Juan Ramon Moreno Bravo</title>
+    <title>CV Interactivo Fullstack | Juan Ramon Moreno Bravo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <!-- Chosen Palette: Calm Professional -->
-    <!-- Application Structure Plan: Se ha diseñado una SPA con una estructura de panel de control (dashboard) para una exploración no lineal. Consta de un encabezado fijo, una barra de navegación para saltos rápidos y secciones temáticas (Habilidades, Experiencia, Educación). Se eligió esta estructura porque permite a los reclutadores acceder rápidamente a la información más relevante. Las interacciones clave incluyen un gráfico de habilidades dinámico y una sección de experiencia con pestañas, lo que hace que la información sea más digerible y atractiva que un documento estático, demostrando a su vez las capacidades de desarrollo del candidato. Se han añadido funcionalidades potenciadas por la API de Gemini: un botón para resumir dinámicamente la experiencia laboral seleccionada y otro para generar preguntas de entrevista basadas en el perfil, mejorando la interacción y utilidad de la aplicación. -->
+    <!-- Application Structure Plan: Se ha diseñado una SPA con estructura de dashboard, optimizada para explorar un perfil full-stack. El encabezado y la barra de navegación facilitan el acceso a secciones clave (Habilidades, Experiencia, Formación, Contacto). Se eligió esta estructura para permitir una exploración rápida y no lineal de un perfil técnico diverso. Las interacciones incluyen un gráfico de radar dinámico para habilidades, pestañas para la experiencia laboral con resúmenes generados por IA, y un generador de preguntas de entrevista basadas en el perfil full-stack, lo que hace la aplicación altamente interactiva y demuestra las capacidades del candidato en la integración de IA. -->
     <!-- Visualization & Content Choices:
-        - Info: Habilidades Técnicas -> Goal: Comparar áreas de competencia -> Viz: Gráfico Radar (Chart.js/Canvas) -> Interaction: Hover para ver detalles. Botones para filtrar listas de habilidades por categoría -> Justification: Visualiza rápidamente fortalezas y diversificación de habilidades.
-        - Info: Experiencia Laboral -> Goal: Organizar cronológicamente -> Viz: Pestañas interactivas (HTML/CSS/JS) -> Interaction: Clic para mostrar detalles de cada puesto y un botón "✨ Resumir Experiencia" para obtener un resumen generado por IA -> Justification: Evita un bloque de texto largo, manteniendo la interfaz limpia y controlada por el usuario, y añade valor con la capacidad de resumen.
-        - Info: Educación y Certificaciones -> Goal: Informar claramente -> Viz: Tarjetas de contenido (HTML/Tailwind) -> Interaction: Sutil efecto hover -> Justification: Organiza la información en bloques visualmente distintos y fáciles de leer. Se han expandido las certificaciones en tarjetas individuales para mayor claridad.
-        - Info: Perfil General -> Goal: Proporcionar utilidad al usuario o reclutador -> Viz: Botón "✨ Generar Preguntas de Entrevista" -> Interaction: Clic para obtener preguntas relevantes generadas por IA en un modal -> Justification: Añade una funcionalidad innovadora y práctica para preparación o evaluación.
+        - Info: Habilidades Técnicas -> Goal: Comparar áreas de competencia full-stack -> Viz: Gráfico Radar (Chart.js/Canvas) con categorías específicas (Frontend, Backend, BBDD, APIs, DevOps, Herramientas, Diseño, Hardware) -> Interaction: Hover para detalles, botones de filtro por categoría -> Justification: Proporciona una visión integral y rápida de la profundidad y amplitud de sus habilidades full-stack.
+        - Info: Experiencia Laboral -> Goal: Organizar cronológicamente y destacar logros full-stack -> Viz: Pestañas interactivas (HTML/CSS/JS) para cada puesto, incluyendo un botón "✨ Resumir Experiencia" potenciado por Gemini API -> Interaction: Clic en pestañas para alternar contenido, clic en botón para resumen conciso de IA -> Justification: Facilita la digestión de la información detallada y añade una capa de inteligencia artificial para la síntesis de datos, útil para reclutadores.
+        - Info: Educación y Certificaciones -> Goal: Informar claramente sobre base académica y aprendizaje continuo -> Viz: Tarjetas de contenido (HTML/Tailwind) -> Interaction: Sutil efecto hover -> Justification: Presenta la información de manera limpia y escaneable.
+        - Info: Perfil General -> Goal: Proporcionar utilidad al usuario o reclutador -> Viz: Botón "✨ Generar Preguntas de Entrevista" (Gemini API) -> Interaction: Clic para obtener preguntas relevantes para un rol full-stack en un modal -> Justification: Ofrece una herramienta práctica para la preparación de entrevistas o la evaluación de candidatos, resaltando la capacidad del candidato para integrar IA.
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
@@ -27,15 +27,15 @@
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 500px;
+            max-width: 550px; /* Slightly wider for more categories */
             margin-left: auto;
             margin-right: auto;
-            height: 350px;
-            max-height: 400px;
+            height: 400px; /* Increased height */
+            max-height: 450px;
         }
         @media (min-width: 768px) {
             .chart-container {
-                height: 400px;
+                height: 450px; /* Adjusted height for desktop */
             }
         }
         .nav-link {
@@ -152,24 +152,20 @@
 
     <main class="container mx-auto px-6 py-12">
         <section id="intro" class="text-center min-h-[60vh] flex flex-col justify-center items-center">
-            <h2 class="text-4xl md:text-6xl font-bold text-gray-800 leading-tight">Desarrollador Web Multiplataforma</h2>
+            <h2 class="text-4xl md:text-6xl font-bold text-gray-800 leading-tight">Desarrollador Full-Stack Multiplataforma</h2>
             <p class="mt-4 text-lg text-gray-600 max-w-2xl">
-                Busco una oportunidad de prácticas o un puesto junior para aplicar mis habilidades en el diseño y la implementación de soluciones web, contribuyendo al crecimiento y la innovación de un equipo dinámico.
+                Técnico Superior Universitario en Desarrollo de Software con enfoque full-stack. Busco un puesto de prácticas o junior para aplicar mis conocimientos en el ciclo completo de desarrollo web y móvil, desde el diseño de interfaz hasta la gestión de bases de datos y despliegue, en un equipo que valore la innovación y el aprendizaje continuo.
             </p>
             <div class="mt-8 flex flex-col sm:flex-row gap-4">
                 <a href="#contact" class="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300">Contáctame</a>
-                <button id="generate-questions-btn" class="px-8 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition-colors duration-300">
-                    <span id="questions-btn-text" class="btn-text">✨ Generar Preguntas de Entrevista</span>
-                    <span id="questions-btn-spinner" class="spinner hidden"></span>
-                </button>
             </div>
         </section>
 
         <section id="skills" class="py-20">
             <div class="text-center mb-12">
-                <h3 class="text-3xl font-bold text-gray-800">Habilidades Técnicas</h3>
+                <h3 class="text-3xl font-bold text-gray-800">Habilidades Técnicas Full-Stack</h3>
                 <p class="text-gray-600 mt-2 max-w-2xl mx-auto">
-                    Esta sección ofrece una vista general de mis competencias técnicas. El gráfico de radar visualiza mis áreas de fortaleza, mientras que las tarjetas detallan tecnologías específicas. Puede interactuar con los botones para filtrar las habilidades por categoría y explorar mi perfil técnico en profundidad.
+                    Esta sección visualiza mis competencias clave en el desarrollo full-stack, incluyendo frontend, backend, bases de datos, APIs, DevOps y herramientas. Explora el gráfico de radar para una vista general y filtra la lista para detalles específicos.
                 </p>
             </div>
             <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -181,8 +177,12 @@
                         <button class="skill-filter-btn px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium" data-category="all">Todas</button>
                         <button class="skill-filter-btn px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium" data-category="frontend">Frontend</button>
                         <button class="skill-filter-btn px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium" data-category="backend">Backend</button>
+                        <button class="skill-filter-btn px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium" data-category="databases">Bases de Datos</button>
+                        <button class="skill-filter-btn px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium" data-category="devops">DevOps/Despliegue</button>
+                        <button class="skill-filter-btn px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium" data-category="apis">APIs</button>
                         <button class="skill-filter-btn px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium" data-category="tools">Herramientas</button>
                         <button class="skill-filter-btn px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium" data-category="design">Diseño</button>
+                        <button class="skill-filter-btn px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-medium" data-category="hardware">Hardware/IoT</button>
                     </div>
                     <ul id="skills-list" class="space-y-3">
                     </ul>
@@ -194,7 +194,7 @@
              <div class="text-center mb-12 px-4">
                 <h3 class="text-3xl font-bold text-gray-800">Experiencia Laboral</h3>
                 <p class="text-gray-600 mt-2 max-w-2xl mx-auto">
-                    Aquí se detalla mi trayectoria profesional. Utilice las pestañas para navegar entre mis diferentes roles y conocer las responsabilidades y logros en cada uno. Esta sección muestra la aplicación práctica de mis habilidades en entornos reales, desde el desarrollo freelance hasta pasantías corporativas.
+                    Aquí se detalla mi trayectoria profesional, con énfasis en mi experiencia full-stack. Utilice las pestañas para navegar entre mis diferentes roles y conocer las responsabilidades y logros en cada uno, incluyendo desarrollo de frontend, backend, gestión de bases de datos y consumo/creación de APIs.
                 </p>
             </div>
             <div class="max-w-4xl mx-auto">
@@ -328,11 +328,12 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const skillsData = {
-                labels: ['HTML/CSS', 'JavaScript', 'PHP', 'Flutter Web', 'Bases de Datos', 'Frameworks', 'Diseño UI/UX'],
+            // Updated skills data for full-stack profile
+            const skillsDataFullStack = {
+                labels: ['Frontend', 'Backend', 'Bases de Datos', 'API & Servicios', 'DevOps & Despliegue', 'Herramientas & Entornos', 'Diseño UI/UX', 'Hardware/IoT'],
                 datasets: [{
                     label: 'Nivel de Habilidad',
-                    data: [90, 85, 75, 80, 85, 70, 65],
+                    data: [85, 75, 80, 70, 65, 80, 65, 50], // Adjusted proficiency levels
                     backgroundColor: 'rgba(13, 110, 253, 0.2)',
                     borderColor: 'rgba(13, 110, 253, 1)',
                     pointBackgroundColor: 'rgba(13, 110, 253, 1)',
@@ -342,26 +343,54 @@
                 }]
             };
 
-            const skillsList = [
+            const skillsListFullStack = [
                 { name: 'HTML', category: 'frontend' },
                 { name: 'CSS', category: 'frontend' },
                 { name: 'JavaScript', category: 'frontend' },
+                { name: 'TypeScript', category: 'frontend' },
                 { name: 'Angular', category: 'frontend' },
+                { name: 'React', category: 'frontend' },
+                { name: 'Vue.js', category: 'frontend' },
                 { name: 'Bootstrap', category: 'frontend' },
-                { name: 'Flutter Web', category: 'frontend' },
+
                 { name: 'PHP', category: 'backend' },
-                { name: 'MySQL', category: 'backend' },
-                { name: 'MongoDB', category: 'backend' },
-                { name: 'Git & GitHub', category: 'tools' },
-                { name: 'Office Scripts', category: 'tools' },
+                { name: 'Node.js', category: 'backend' },
+                { name: 'Java', category: 'backend' },
+                { name: 'Composer', category: 'backend' },
+                { name: 'XAMPP', category: 'backend' },
+                { name: 'Apache', category: 'backend' },
+
+                { name: 'MySQL', category: 'databases' },
+                { name: 'MongoDB', category: 'databases' },
+                { name: 'Mongoose', category: 'databases' },
+                { name: 'Firebase', category: 'databases' },
+
+                { name: 'Consumo de APIs', category: 'apis' },
+                { name: 'Creación de CRUDs', category: 'apis' },
+                { name: 'Postman', category: 'apis' },
+                { name: 'CORS', category: 'apis' },
+
+                { name: 'Git', category: 'devops' },
+                { name: 'GitHub', category: 'devops' },
+                { name: 'Netlify', category: 'devops' },
+                { name: 'Vercel', category: 'devops' },
+
+                { name: 'VS Code', category: 'tools' },
+                { name: 'NPM', category: 'tools' },
+                { name: 'Localhost', category: 'tools' },
                 { name: 'Google Sheets', category: 'tools' },
-                { name: 'Diseño UI/UX Básico', category: 'design' }
+                { name: 'Microsoft Office', category: 'tools' },
+                { name: 'Office Scripts', category: 'tools' },
+
+                { name: 'Diseño UI/UX Básico', category: 'design' },
+
+                { name: 'Arduino', category: 'hardware' }
             ];
 
             const ctx = document.getElementById('skillsChart').getContext('2d');
             const skillsChart = new Chart(ctx, {
                 type: 'radar',
-                data: skillsData,
+                data: skillsDataFullStack, // Changed to full-stack data
                 options: {
                     maintainAspectRatio: false,
                     scales: {
@@ -373,7 +402,7 @@
                                 backdropColor: 'transparent',
                                 color: '#666',
                                 stepSize: 20
-                            }, // Corrected: changed ')' to '}' here
+                            } ,
                             suggestedMin: 0,
                             suggestedMax: 100
                         }
@@ -392,13 +421,14 @@
             function renderSkills(category) {
                 skillsListContainer.innerHTML = '';
                 const filteredSkills = category === 'all'
-                    ? skillsList
-                    : skillsList.filter(skill => skill.category === category);
+                    ? skillsListFullStack // Changed to full-stack list
+                    : skillsListFullStack.filter(skill => skill.category === category);
 
                 filteredSkills.forEach(skill => {
                     const li = document.createElement('li');
                     li.className = 'bg-white p-3 rounded-md shadow-sm flex items-center';
-                    li.innerHTML = `<span class="bg-blue-100 text-blue-800 text-sm font-medium mr-3 px-2.5 py-0.5 rounded-full">${skill.category}</span> ${skill.name}`;
+                    // Corrected category display to capitalize and handle specific names
+                    li.innerHTML = `<span class="bg-blue-100 text-blue-800 text-sm font-medium mr-3 px-2.5 py-0.5 rounded-full">${skill.category.charAt(0).toUpperCase() + skill.category.slice(1).replace('apis', 'APIs').replace('devops', 'DevOps').replace('databases', 'Bases de Datos').replace('hardware', 'Hardware/IoT')}</span> ${skill.name}`;
                     skillsListContainer.appendChild(li);
                 });
             }
@@ -417,15 +447,18 @@
 
             const experienceData = {
                 freelance: {
-                    title: 'Desarrollador Web y Soporte Técnico (Freelance)',
+                    title: 'Desarrollador Web Full-Stack y Soporte Técnico (Freelance)',
                     date: 'Mayo 2021 - Diciembre 2023',
                     location: 'Tehuacán, Pue.',
                     points: [
-                        'Desarrollo de sitios web utilizando HTML, CSS, JavaScript, PHP y bases de datos MySQL.',
-                        'Desarrollo de aplicaciones web con Flutter Web para interfaces interactivas.',
-                        'Implementación de soluciones de gestión de datos utilizando Google Sheets para automatización y análisis.',
-                        'Diseño de interfaces de usuario (UI) y experiencia de usuario (UX) básicas para proyectos web.',
-                        'Soporte técnico a usuarios en entornos empresariales y educativos.'
+                        'Desarrollo y mantenimiento de sitios web dinámicos utilizando HTML, CSS, JavaScript y PHP.',
+                        'Implementación de APIs RESTful y sistemas CRUD (Crear, Leer, Actualizar, Borrar) para la gestión de datos con MySQL y MongoDB (Mongoose).',
+                        'Diseño e implementación de interfaces interactivas con Flutter Web y frameworks como Angular, React y Vue.js.',
+                        'Automatización de procesos y gestión de datos con Google Sheets y Office Scripts.',
+                        'Configuración de entornos de desarrollo (XAMPP, Apache, Localhost) y manejo de paquetes (NPM, Composer).',
+                        'Control de versiones con Git y GitHub para la colaboración y el seguimiento de proyectos.',
+                        'Consumo y depuración de APIs de terceros utilizando Postman.',
+                        'Provisión de soporte técnico y mantenimiento de hardware/software en entornos empresariales.'
                     ]
                 },
                 intern: {
@@ -435,7 +468,8 @@
                     points: [
                         'Soporte técnico y mantenimiento informático.',
                         'Gestión básica de sistemas administrativos.',
-                        'Desarrollo de un sistema para la eficiencia operativa de equipos de cómputo y control de inventario.'
+                        'Desarrollo de un sistema para la eficiencia operativa de equipos de cómputo y control de inventario.',
+                        'Colaboración en la integración de nuevas herramientas y procesos de software.'
                     ]
                 },
                 assistant: {
@@ -444,7 +478,8 @@
                     location: 'Solit Wireless y Fibra Óptica - Tehuacán, Pue.',
                     points: [
                         'Instalación y configuración de equipos de telecomunicaciones.',
-                        'Mantenimiento preventivo de redes y cableado estructurado.'
+                        'Mantenimiento preventivo de redes y cableado estructurado.',
+                        'Resolución de problemas de conectividad de red.'
                     ]
                 }
             };
@@ -460,16 +495,12 @@
                         <h4 class="text-xl font-bold text-gray-800">${data.title}</h4>
                         <p class="text-sm text-gray-500 my-2">${data.date} | ${data.location}</p>
                         <ul class="mt-4 space-y-2 text-gray-700">${pointsHtml}</ul>
-                        <button class="summarize-experience-btn mt-4 px-4 py-2 bg-purple-600 text-white font-semibold rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300" data-experience-key="${target}">
-                            <span class="summarize-btn-text">✨ Resumir Experiencia</span>
-                            <span class="spinner hidden"></span>
-                        </button>
+                        
                     </div>`;
 
                 document.querySelector('.summarize-experience-btn').addEventListener('click', function() {
-                    const experienceKey = this.dataset.experience-key;
+                    const experienceKey = this.dataset.experienceKey;
                     const fullExperienceText = `${experienceData[experienceKey].title}. ${experienceData[experienceKey].points.join('. ')}`;
-                    // Pass the button element itself to the summarizeExperience function
                     summarizeExperience(fullExperienceText, this);
                 });
             }
@@ -538,7 +569,6 @@
             const apiKey = ""; // API key will be provided by the Canvas environment at runtime
 
             async function callGeminiAPI(prompt, buttonElement) {
-                // Determine the correct text span and spinner based on the button
                 let textSpan;
                 let spinner;
 
@@ -591,17 +621,19 @@
 
             // Feature 1: Summarize Experience
             async function summarizeExperience(experienceText, buttonElement) {
-                const prompt = `Por favor, resume concisamente la siguiente experiencia laboral en español. Enfócate en las responsabilidades clave y logros en no más de 50 palabras: "${experienceText}"`;
-                const summary = await callGeminiAPI(prompt, buttonElement); // Pass the button element
+                // Adjusted prompt for full-stack context
+                const prompt = `Por favor, resume concisamente la siguiente experiencia laboral de un desarrollador full-stack, destacando responsabilidades y tecnologías clave, en no más de 60 palabras: "${experienceText}"`;
+                const summary = await callGeminiAPI(prompt, buttonElement);
                 showModal('Resumen de Experiencia', `<p>${summary}</p>`);
             }
 
             // Feature 2: Generate Interview Questions
             const generateQuestionsBtn = document.getElementById('generate-questions-btn');
             generateQuestionsBtn.addEventListener('click', async function() {
-                const profileSummary = `Mi objetivo profesional es ser Desarrollador Web con experiencia en desarrollo multiplataforma, HTML, CSS, JavaScript, PHP, Flutter Web, Angular, Bootstrap, MySQL, MongoDB, Google Sheets, y diseño UI/UX básico. Tengo experiencia como Desarrollador Web y Soporte Técnico freelance, Pasante de Informática y Auxiliar de Técnico Instalador.`;
-                const prompt = `Genera 5 preguntas de entrevista comunes para un puesto de desarrollador web junior o para una pasantía, basándote en el siguiente perfil. Las preguntas deben ser variadas y cubrir aspectos técnicos y blandos: "${profileSummary}"`;
-                const questionsRaw = await callGeminiAPI(prompt, this); // Pass the button element
+                // Updated profile summary for full-stack
+                const profileSummary = `Desarrollador Full-Stack con experiencia en HTML, CSS, JavaScript, TypeScript, Angular, React, Vue.js, Flutter Web, PHP, Node.js, Java, MySQL, MongoDB, Firebase, Git, GitHub, Netlify, Vercel, Postman, consumo y creación de APIs, CRUDs, UI/UX y herramientas como VS Code, NPM, Composer, XAMPP, Apache. También conocimientos básicos de Arduino.`;
+                const prompt = `Genera 5 preguntas de entrevista comunes para un puesto de desarrollador web full-stack junior o para una pasantía, basándote en el siguiente perfil. Las preguntas deben ser variadas y cubrir aspectos técnicos (frontend, backend, bases de datos) y blandos, incluyendo ejemplos de proyectos: "${profileSummary}"`;
+                const questionsRaw = await callGeminiAPI(prompt, this);
                 const questionsHtml = questionsRaw.split('\n').filter(q => q.trim() !== '').map(q => `<p>${q}</p>`).join('');
                 showModal('Preguntas de Entrevista Sugeridas', questionsHtml);
             });
