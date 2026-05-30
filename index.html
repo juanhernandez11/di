@@ -98,13 +98,13 @@
     </div>
 
     <!-- Modern Floating Nav -->
-    <header class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-2xl print-hidden">
-        <nav class="glass-panel rounded-full px-6 py-3 flex justify-between items-center shadow-2xl shadow-black/50">
-            <a href="#intro" class="text-white font-bold tracking-tight text-sm flex items-center gap-2">
+    <header class="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl print-hidden">
+        <nav class="glass-panel rounded-full px-10 py-4 flex justify-between items-center shadow-2xl shadow-black/50 w-full">
+            <a href="#intro" class="text-white font-bold tracking-tight text-base flex items-center gap-2 transition-transform hover:scale-105">
                 <svg class="w-4 h-4 text-blue-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 22h20L12 2z"/></svg>
                 JRMB
             </a>
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+            <div class="hidden md:flex items-center gap-12 text-sm font-medium">
                 <a href="#experience" class="nav-link">Experiencia</a>
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#projects" class="nav-link">Proyectos</a>
@@ -126,9 +126,9 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="intro" class="pt-48 pb-32 min-h-[90vh] flex flex-col justify-center items-center text-center px-6 relative z-10">
-            <div class="max-w-4xl mx-auto reveal">
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-panel border-white/10 text-zinc-300 text-xs font-medium uppercase tracking-[0.2em] mb-8">
+        <section id="intro" class="pt-56 pb-32 min-h-[90vh] flex flex-col justify-center items-center text-center px-6 relative z-10">
+            <div class="max-w-5xl w-full mx-auto reveal flex flex-col items-center">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border-white/10 text-zinc-300 text-xs font-medium uppercase tracking-[0.2em] mb-10">
                     <span class="relative flex h-2 w-2">
                       <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                       <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
@@ -136,15 +136,15 @@
                     Disponible para nuevos retos
                 </div>
                 
-                <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter gradient-text glow-text mb-6 leading-[1.1] pb-2">
+                <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter gradient-text glow-text mb-8 leading-[1.1] pb-2 text-center">
                     Juan Ramón<br>Moreno Bravo
                 </h1>
                 
-                <h2 class="text-lg md:text-2xl text-zinc-400 font-light mb-10 max-w-2xl mx-auto leading-relaxed">
+                <h2 class="text-lg md:text-2xl text-zinc-400 font-light mb-12 max-w-3xl mx-auto leading-relaxed text-center">
                     Frontend Developer enfocado en <span class="text-white font-medium">React</span>, <span class="text-white font-medium">TypeScript</span> y optimización <span class="text-white font-medium">WPO</span>. Arquitectando experiencias web de nivel premium.
                 </h2>
                 
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6 w-full">
                     <a href="#projects" class="bg-white text-black hover:bg-zinc-200 transition-colors px-8 py-3.5 rounded-full font-medium text-sm w-full sm:w-auto">
                         Explorar Trabajo
                     </a>
@@ -154,7 +154,7 @@
                 </div>
                 
                 <!-- Key Metrics -->
-                <div class="mt-24 grid grid-cols-2 gap-8 border-t border-white/5 pt-12 max-w-2xl mx-auto">
+                <div class="mt-28 grid grid-cols-2 gap-8 border-t border-white/5 pt-12 w-full max-w-3xl mx-auto text-center">
                     <div>
                         <p class="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tighter">-35%</p>
                         <p class="text-xs text-zinc-500 uppercase tracking-widest font-mono">Tiempos de carga</p>
@@ -169,7 +169,7 @@
 
         <!-- Experience Timeline -->
         <section id="experience" class="py-32 px-6 relative z-10 reveal">
-            <div class="max-w-4xl mx-auto">
+            <div class="max-w-4xl w-full mx-auto">
                 <h3 class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-16 text-center">Trayectoria Profesional</h3>
                 
                 <div class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-[1px] before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
@@ -235,7 +235,7 @@
 
         <!-- Skills Minimalist Matrix -->
         <section id="skills" class="py-32 px-6 relative z-10 reveal">
-            <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-16 items-start">
+            <div class="max-w-6xl w-full mx-auto flex flex-col md:flex-row gap-16 items-start">
                 <div class="md:w-1/3">
                     <h3 class="text-3xl font-bold tracking-tight text-white mb-4">Ecosistema Técnico</h3>
                     <p class="text-zinc-400 font-light text-sm leading-relaxed">Herramientas dominadas para construir aplicaciones escalables y ultra rápidas.</p>
@@ -251,7 +251,7 @@
                             <span class="px-3 py-1.5 glass-panel rounded-md text-xs text-zinc-300">Angular</span>
                             <span class="px-3 py-1.5 glass-panel rounded-md text-xs text-zinc-300">Tailwind CSS</span>
                         </div>
-                    </p>
+                </div>
                     <div class="glass-card p-6 rounded-2xl">
                         <h4 class="text-white font-medium mb-4 text-sm uppercase tracking-widest flex items-center gap-2">
                             <span class="w-2 h-2 rounded-full bg-indigo-500"></span> Backend & Datos
@@ -288,7 +288,7 @@
                 </p>
             </div>
             
-            <div class="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
+            <div class="grid gap-8 md:grid-cols-3 w-full max-w-6xl mx-auto">
                 <!-- Project 1 -->
                 <article class="glass-card p-8 rounded-[2rem] flex flex-col group relative overflow-hidden">
                     <div class="mb-8">
@@ -338,7 +338,7 @@
 
         <!-- Education & Certifications -->
         <section id="education" class="py-32 px-6 relative z-10 reveal">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 w-full max-w-5xl mx-auto">
                 <div>
                     <h3 class="text-2xl font-bold tracking-tight text-white mb-8">Formación Académica</h3>
                     <div class="space-y-6">
@@ -379,7 +379,7 @@
         </section>
     </main>
 
-    <footer id="contact" class="relative pt-32 pb-12 border-t border-white/5 overflow-hidden reveal">
+    <footer id="contact" class="relative pt-24 pb-12 border-t border-white/5 overflow-hidden reveal">
         <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
         
         <div class="container mx-auto px-6 max-w-4xl text-center relative z-10">
@@ -390,7 +390,7 @@
                 </p>
             </div>
             
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-32">
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-24">
                 <a href="JUAN RAMON MORENO BRAVO.pdf" download class="bg-white text-black px-8 py-3.5 rounded-full font-medium text-sm hover:scale-105 transition-transform flex items-center gap-2">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                     Descargar CV
